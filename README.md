@@ -49,10 +49,17 @@ POST /generate-new-deck
 example: http://localhost:8080/deckservice/generate-new-deck
 
 GET /get-next-card?deckId=xxx&cardIndex=xxx
-required: deckId
+Required: deckId
+Optional: cardIndex
 example: http://localhost:8080/deckservice/get-next-card?deckId=095d
+example:
+http://localhost:8080/deckservice/get-next-card?deckId=9db6
+http://localhost:8080/deckservice/get-next-card?deckId=9db6&cardIndex=2d3e
 
 GET /skip-next-card?deckId=xxx&cardIndex=xxx
-required: deckId
-example: http://localhost:8080/deckservice/skip-next-card?deckId=06d8
+Required: deckId
+Optional: cardIndex
+example:
+http://localhost:8080/deckservice/skip-next-card?deckId=9db6
+http://localhost:8080/deckservice/skip-next-card?deckId=9db6&cardIndex=2d3e
 ```
