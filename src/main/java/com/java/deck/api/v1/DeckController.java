@@ -27,21 +27,21 @@ public class DeckController {
         try{
             String deckId = deckService.generateNewDeck();
 
-           return ResponseEntity.ok().body(deckId);
+                       return ResponseEntity.ok().body("DeckId = "+deckId);
         }catch(Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("There was server error");
         }
     }
 
     @GetMapping("/get-next-card")
     public ResponseEntity<?> getNextCard(@RequestParam String deckId, @RequestParam(required = false) String cardIndex){
 
-        final Entry<String, Card> nextCard = deckService.getNextCard(deckId, cardIndex);
+            final Entry<String, Card> nextCard = deckService.getNextCard(deckId, cardIndex);
 
        if(nextCard==null){
             return ResponseEntity.badRequest().body("deckId is not valid or there was an error processing the request");
         }
-        return ResponseEntity.ok().body(nextCard);
+        return ResponseEntity.ok().body(nextCard.toString());
 
     }
 
@@ -51,7 +51,7 @@ public class DeckController {
         final String newCardIndex = deckService.skipNextCard(deckId, cardIndex);
 
        if(newCardIndex ==null){
-            return ResponseEntity.badRequest().body("deck is not valid or there was an error processing the request");
+            return ResponseEntity.badRequest().body("deck id is not valid or there was an error processing the request");
         }
         return ResponseEntity.ok().body(newCardIndex);
     }

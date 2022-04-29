@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class Deck {
 
     private ArrayList<Card> deck;
-    private UUID deckId;
+    private String deckId;
     private LinkedHashMap<String, Card> orderedDeck;
 
 
@@ -22,7 +22,6 @@ public class Deck {
         this.deck = deck;
 
     }
-
 
     public Deck() {
 
@@ -37,12 +36,12 @@ public class Deck {
             }
         }
 
-        this.deckId = UUID.randomUUID();
+        this.deckId = UUID.randomUUID().toString().substring(0,4);
     }
 
     public String getDeckId() {
 
-        return deckId.toString();
+        return deckId;
     }
 
     public ArrayList<Card> getDeck() {
@@ -60,7 +59,7 @@ public class Deck {
     private void orderDeck() {
 
         final Map<String, Card> collect =
-            deck.stream().collect(Collectors.toMap(card -> card.getId().toString(), card -> card));
+            deck.stream().collect(Collectors.toMap(card -> card.getId(), card -> card));
         orderedDeck = new LinkedHashMap<>(collect);
 
     }

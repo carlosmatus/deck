@@ -6,13 +6,16 @@ import java.util.UUID;
 
 public class Card {
     private String faceName, suit;
-    private UUID id;
+    private String id;
 
     public Card(String faceName, String suit) {
         setFaceName(faceName);
         setSuit(suit);
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString().substring(0,4);
 
+    }
+    public String getFaceName() {
+        return faceName;
     }
 
     public static List<String> getValidFaceNames()
@@ -52,7 +55,7 @@ public class Card {
         return String.format("%s of %s", faceName, suit);
     }
 
-    public UUID getId() {
+    public String getId() {
 
         return id;
     }
