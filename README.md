@@ -51,7 +51,6 @@ example: http://localhost:8080/deckservice/generate-new-deck
 GET /get-next-card?deckId=xxx&cardIndex=xxx
 Required: deckId
 Optional: cardIndex
-example: http://localhost:8080/deckservice/get-next-card?deckId=095d
 example:
 http://localhost:8080/deckservice/get-next-card?deckId=9db6
 http://localhost:8080/deckservice/get-next-card?deckId=9db6&cardIndex=2d3e
