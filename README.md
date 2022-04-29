@@ -11,7 +11,7 @@ The application was created using Java 8, Maven, Springboot 2.6.7
 ##Limitations/concerns
 It would have added more functionality if I had additional information like the purpose of the game, any use cases,context, etc.
    
-####Missing:
+#### Missing:
     Integration test
     Custom Response Objects
     Addional Exception handler 
